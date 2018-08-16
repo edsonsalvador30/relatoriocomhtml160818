@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Prova" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8c12e7ec-e38b-45df-a61f-0c21982e4378">
+	<property name="zoom.factor" value="50.0"/>
+	<property name="DATASOURCE" value="jdbc/main"/>
+	<property name="REPORT_DATASET" value="[{&quot;name&quot;:&quot;PROVAS&quot;,&quot;j4CDataset&quot;:{&quot;datasetType&quot;:&quot;DATASOURCE&quot;,&quot;freeQuery&quot;:false,&quot;jndiConnection&quot;:&quot;jdbc/main&quot;,&quot;recordLimit&quot;:10,&quot;tables&quot;:[{&quot;name&quot;:&quot;PROVA&quot;}],&quot;joins&quot;:[],&quot;columns&quot;:[{&quot;parent&quot;:{&quot;name&quot;:&quot;PROVA&quot;},&quot;name&quot;:&quot;questoes&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;PROVA&quot;},&quot;name&quot;:&quot;materia&quot;,&quot;type&quot;:&quot;VARCHAR&quot;},{&quot;parent&quot;:{&quot;name&quot;:&quot;PROVA&quot;},&quot;name&quot;:&quot;alternativas&quot;,&quot;type&quot;:&quot;VARCHAR&quot;}],&quot;wheres&quot;:[],&quot;persistenceUnitName&quot;:&quot;app&quot;},&quot;main&quot;:true}]"/>
+	<queryString>
+		<![CDATA[SELECT
+    "PROVA".questoes ,
+    "PROVA".materia ,
+    "PROVA".alternativas 
+FROM
+    "PROVA" ]]>
+	</queryString>
+	<field name="alternativas" class="java.lang.String">
+		<fieldDescription><![CDATA[alternativas]]></fieldDescription>
+	</field>
+	<field name="questoes" class="java.lang.String">
+		<fieldDescription><![CDATA[questoes]]></fieldDescription>
+	</field>
+	<field name="materia" class="java.lang.String">
+		<fieldDescription><![CDATA[materia]]></fieldDescription>
+	</field>
+	<title>
+		<band height="24">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a8fab2fb-4e38-47cd-ad4a-798a0a25a395"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Exemplo de Prova]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27">
+			<textField>
+				<reportElement x="1" y="0" width="100" height="20" uuid="4dda609e-a5df-4a43-b3a8-75f6b3c90363"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{materia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="222">
+			<textField>
+				<reportElement x="0" y="-1" width="569" height="102" uuid="287edb97-6a29-4864-9188-5104b338a3ab"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{questoes}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="101" width="571" height="110" uuid="464e20d3-7468-4b2d-a6c6-2a182533f728"/>
+				<textElement textAlignment="Left" verticalAlignment="Top" markup="html">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{alternativas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54"/>
+	</pageFooter>
+	<summary>
+		<band height="42"/>
+	</summary>
+</jasperReport>
